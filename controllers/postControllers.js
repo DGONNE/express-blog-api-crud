@@ -26,4 +26,18 @@ const destroy = (req, res) => {
   res.status(204).send();
 };
 
+// Store
+const store = (req, res) => {
+  const { title, content, tag } = req.body;
+  const newPost = {
+    id: posts.length + 1,
+    title,
+    content,
+    tag,
+  };
+  posts.push(newPost);
+  console.log("Nuovo post aggiunto:", newPost);
+  res.status(201).json(newPost);
+};
+
 module.exports = { index, show, destroy };
