@@ -7,6 +7,9 @@ app.use(express.json());
 
 app.use(postRoutes);
 
+app.use(bodyParser.json());
+app.use(postRoutes);
+
 app.listen(port, () => {
   console.log(`Server in ascolto sulla porta ${port}`);
 });
