@@ -40,4 +40,16 @@ const store = (req, res) => {
   res.status(201).json(newPost);
 };
 
-module.exports = { index, show, destroy };
+// Update
+
+const update = (req, res) => {
+  const post = posts.find((p) => p.id === parseInt(req.params.id));
+  if (!post) {
+    return res.status(404).json({ error: "Post non trovato" });
+  }
+
+  console.log("Post aggiornato:", post);
+  res.json(post);
+};
+
+module.exports = { index, show, destroy, store, update };
